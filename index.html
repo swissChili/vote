@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>PS Vote!</title>
+  <link rel="stylesheet" href="bulma.css" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <div class="info-box">
+    <br />
+    <h1 class="title is-2 centerAlign whiteText">Vote For President!</h1>
+    <br />
+  </div>
+  <div class="container">
+    <br />
+    <div class="box">
+      <div class="title is-3">
+        {{candidate.name}}
+      </div>
+      <i>{{candidate.motto}}</i>
+      <br />
+      <br />
+      <div>
+        {{candidate.values}}
+      </div>
+      <br />
+      <a href="#!" @click="openModal(candidate)"><div class="box info-box">
+        <p class="title is-3 whiteText centerAlign">Place Vote</p>
+      </div></a>
+    </div>
+    <br />
+  </div>
+  <div class="modal">
+    <div class="modal-background">
+
+    </div>
+    <div class="modal-content">
+      <div class="box">
+        <div class="title is-3">
+          Vote Placed For {{candidate.name}}!
+        </div>
+        <i>{{candidate.motto}}</i>
+        <br />
+        <br />
+        <p>
+          {{candidate.values}}
+        </p>
+        <br />
+        <div class="columns">
+          <div class="column">
+            <a href="#!" @click="closeModal"><div class="box warning-box">
+              <p class="title is-3 whiteText centerAlign">No! Go Back!</p>
+            </div></a>
+          </div>
+          <div class="column">
+            <a href="#!" @click="openModal(candidate)"><div class="box info-box">
+              <p class="title is-3 whiteText centerAlign">Submit Vote!</p>
+            </div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
