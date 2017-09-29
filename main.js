@@ -5,12 +5,12 @@ var app = new Vue({
     modalCandidate: {},
     canidates: [{
       name: 'Leam Jenney',
-      moto: 'Take a free drink',
+      motto: 'Take a free drink',
       values: 'Eat food, sleep well, play, meh',
       image: './images/profile_placeholder.png'
     }, {
       name: 'James Iskander',
-      moto: 'Repersenting you!',
+      motto: 'Repersenting you!',
       values: 'Belive in me!',
       image: './images/profile_placeholder.png'
     }]
