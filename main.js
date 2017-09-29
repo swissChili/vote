@@ -4,7 +4,7 @@ var app = new Vue({
     modal: false,
     modalCandidate: {},
     canidates: [{
-      name: 'Leam Jenney',
+      name: 'Liam Jenney',
       moto: 'Take a free drink',
       values: 'Eat food, sleep well, play, meh',
       image: './images/profile_placeholder.png'
@@ -12,6 +12,11 @@ var app = new Vue({
       name: 'James Iskander',
       moto: 'Repersenting you!',
       values: 'Belive in me!',
+      image: './images/profile_placeholder.png'
+    }, {
+      name: 'Leo Fayad',
+      moto: 'A face you can trust.',
+      values: 'None, Fame, Lazars!',
       image: './images/profile_placeholder.png'
     }]
   },
