@@ -1,6 +1,7 @@
 var app = new Vue({
   el: '#app',
   data: {
+    voted: false,
     modal: false,
     modalCandidate: {},
     canidates: [{
@@ -31,6 +32,11 @@ var app = new Vue({
     voteFor: function (canidate) {
       console.log('voted for', canidate.name)
       this.modal = false
+      this.voted = true
+      var stateObj = {
+        foo: 'bar'
+      }
+      history.pushState(stateObj, 'Voted ', 'voted.html')
     }
   }
 })
