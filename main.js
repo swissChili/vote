@@ -15,7 +15,7 @@ var app = new Vue({
       image: './images/profile_placeholder.png'
     }, {
       name: 'Leo Fayad',
-      motto: 'A face you can trust.',
+      motto: 'Dont be a fayo, vote for leo.',
       values: 'None, Fame, Lazars!',
       image: './images/profile_placeholder.png'
     }]
