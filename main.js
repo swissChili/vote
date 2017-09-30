@@ -6,30 +6,35 @@
       loginMessage: 'Login',
       voted: false,
       modal: false,
+      loginState: false,
       modalCandidate: {},
-      canidates: [{
-        name: 'Leam Jenney',
-        motto: 'Take a free drink',
-        values: 'Eat food, sleep well, play, meh',
-        image: './images/profile_placeholder.png'
-      }, {
-        name: 'James Iskander',
-        motto: 'Repersenting you!',
-        values: 'Belive in me!',
-        image: './images/profile_placeholder.png'
-      }, {
-        name: 'Leo Fayad',
-        motto: 'Dont be a fayo, vote for leo.',
-        values: 'None, Fame, Lazars!',
-        image: './images/profile_placeholder.png'
-      }]
+      canidates: []
     },
     mounted: function () {
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
+          var name = user.displayName
+          var email = user.email
+          var photoUrl = user.photoURL
+          var emailVerified = user.emailVerified
+          var uid = user.uid
+          socket.emit('checkIfVoted', uid)
+          socket.on('allreadyvoted', function () {
+            window.location.href = '/voted.html'
+          })
+          socket.on('checksOut', function (canidates) {
+            app.loginState = true
+            socket.emit('getCanidates')
+            socket.on('canidates', function (canidates) {
+              console.log(app.canidates)
+              console.log('got canidates', canidates)
+              app.canidates = canidates
+            })
+          })
           app.loginMessage = 'Logout'
         } else {
           app.loginMessage = 'Login'
+          app.loginState = false
         }
       })
     },
@@ -40,6 +45,7 @@
         if (user) {
           firebase.auth().signOut().then(function () {
             app.loginMessage = 'Login'
+            app.loginState = false
           }).catch(function (error) {
           // An error happened.
           })
@@ -55,8 +61,20 @@
         this.modal = false
       },
       voteFor: function (canidate) {
+        var user = firebase.auth().currentUser
+        var name, email, photoUrl, uid, emailVerified
+
+        if (user != null) {
+          name = user.displayName
+          email = user.email
+          photoUrl = user.photoURL
+          emailVerified = user.emailVerified
+          uid = user.uid  // The user's ID, unique to the Firebase project. Do NOT use
+                   // this value to authenticate with your backend server, if
+                   // you have one. Use User.getToken() instead.
+        }
         console.log('voted for', canidate.name)
-        socket.emit('vote', canidate.name)
+        socket.emit('vote', canidate.name, uid, email, name)
         this.modal = false
         this.voted = true
         var stateObj = {

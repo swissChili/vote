@@ -28,7 +28,11 @@
                     <br />
                     <button @click="login" class="button is-dark">{{loginMessage}}</button>
                 </div>
-                <div class="container">
+                <div v-if="!loginState">
+                    <br><br>
+                    <h1 class="title is-2">Please Login to place your vote</h1>
+                </div>
+                <div v-if="loginState" class="container">
                     <br />
                     <div v-for="candidate in canidates" class="box">
                         <div class="title is-3">
@@ -105,9 +109,9 @@
                 'login_hint': 'name@prospectsierra.org'
             });
         </script>
-        <script src="https://unpkg.com/vue "></script>
+        <script src="https://unpkg.com/vue"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-        <script src="main.js " charset="utf-8 "></script>
+        <script src="main.js" charset="utf-8"></script>
     </body>
 
 </html>
