@@ -27,3 +27,28 @@ a {
 html, body {
   height: 100%;
 }
+.podiums {
+  height: 400px;
+  display: flex;
+}
+.second-top {
+  height: 25%;
+}
+.second-bottom {
+  height: 75%;
+  background-color: #1abc9c;
+  padding: 20px;
+}
+.first-bottom {
+  height: 100%;
+  background-color: #2ecc71;
+  padding: 20px;
+}
+.third-top {
+  height: 50%;
+}
+.third-bottom{
+  height: 50%;
+  background-color: #3498db;
+  padding: 20px;
+}
