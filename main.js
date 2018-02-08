@@ -7,7 +7,12 @@
       modal: false,
       loginState: false,
       modalCandidate: {},
-      canidates: []
+      canidates: [
+        {
+          candidate.name: 'twenty',
+          candidate.slogan: 'yee'
+        }
+      ]
     },
     methods: {
       openModal: function (canidate) {
