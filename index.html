@@ -9,22 +9,10 @@
 
     <body>
         <main id="app">
-            <section v-if="voted" style="height: 100%;" id="thankyou" class="hero is-large">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-          Thank You!
-          </h1>
-                        <h2 class="subtitle">
-          Your response has been recorded
-          </h2>
-                    </div>
-                </div>
-            </section>
-            <div v-if="!voted" id="voting">
+            <div id="voting">
                 <div class="info-box">
                     <br />
-                    <h1 class="title is-2 centerAlign whiteText">Vote For President!</h1>
+                    <h1 class="title is-2 centerAlign whiteText">Nervous System Test: Science 8</h1>
                     <br />
                     <button @click="login" class="button is-dark">{{loginMessage}}</button>
                 </div>
