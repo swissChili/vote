@@ -10,16 +10,6 @@
     <body>
         <main id="app">
             <div id="voting">
-                <div class="info-box">
-                    <br />
-                    <h1 class="title is-2 centerAlign whiteText">Nervous System Test: Science 8</h1>
-                    <br />
-                    <button @click="login" class="button is-dark">{{loginMessage}}</button>
-                </div>
-                <div v-if="!loginState">
-                    <br><br>
-                    <h1 class="title is-2">Please Login to place your vote</h1>
-                </div>
                 <div v-if="loginState" class="container">
                     <br />
                     <div v-for="candidate in canidates" class="box">
@@ -79,26 +69,7 @@
             </div>
 
         </main>
-        <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
-        <script>
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyB7YPgZojQfz59zQRKjK-V0uCDtwbyxLvQ",
-                authDomain: "vote-809f1.firebaseapp.com",
-                databaseURL: "https://vote-809f1.firebaseio.com",
-                projectId: "vote-809f1",
-                storageBucket: "",
-                messagingSenderId: "595808194393"
-            };
-            firebase.initializeApp(config);
-            var provider = new firebase.auth.GoogleAuthProvider();
-            provider.setCustomParameters(
-            {
-                'login_hint': 'name@prospectsierra.org'
-            });
-        </script>
         <script src="https://unpkg.com/vue"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
         <script src="main.js" charset="utf-8"></script>
     </body>
 
